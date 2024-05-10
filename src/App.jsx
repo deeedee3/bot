@@ -1,12 +1,13 @@
-import React from 'react'
-import Botcollection from './components/BotCollection'
+import React from "react";
+import BotsPage from "./components/BotPage";
+import "./App.css"
 
 function App() {
   return (
-    <div> 
-      <Botcollection/>
+    <div>
+      <BotsPage />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

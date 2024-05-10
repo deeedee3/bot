@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from "react";
+import BotCard from "./BotCard";
 
-function Botcollection() {
-    const [bots, setBots] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:3000/bots')
-            .then((res) => res.json())
-            .then((data) => setBots(data))
-            .catch((error) => console.error('Error fetching data:', error));
-    }, []); 
-
+function BotCollection({ bots, addBotToArmy, deleteBot }) {
+  const mappedBots = bots.map((bot) => {
     return (
-        <div >
-            {bots.map((bot) => ( 
-                <div key={bot.id} className="grid grid-cols-4 gap-4" >
-                    <img src={bot.avatar_url} />
-                </div>
-            ))}
-        </div>
+      <BotCard
+        bot={bot}
+        key={bot.id}
+        clickAdd={addBotToArmy}
+        clickDelete={deleteBot}
+      />
     );
+  });
+
+  return (
+    <div className="ui four column grid">
+      Collection of all bots
+      <div className="row">{mappedBots}</div>
+    </div>
+  );
 }
 
-export default Botcollection;
+export default BotCollection;
