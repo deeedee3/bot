@@ -8,7 +8,7 @@ function BotsPage() {
   const [army, setArmy] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/bots")
+    fetch("https://my-json-server.typicode.com/deeedee3/bot/bots")
       .then((res) => res.json())
       .then((bots) => setBots(bots));
   }, []);
@@ -27,7 +27,7 @@ function BotsPage() {
     ) {
       setBots(bots.filter((bot) => bot !== selectedBot));
       setArmy(army.filter((bot) => bot !== selectedBot));
-      fetch(`http://localhost:3000/bots/${selectedBot.id}`, {
+      fetch(`https://my-json-server.typicode.com/deeedee3/bot/bots/${selectedBot.id}`, {
         method: "DELETE",
       });
     }
