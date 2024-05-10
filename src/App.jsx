@@ -1,8 +1,12 @@
 import React from 'react'
-import Botcollection from './components/Botcollection'
+import Botcollection from './components/BotCollection'
 
 function App() {
-
-  <Botcollection />
+  return (
+    <div> 
+      <Botcollection/>
+    </div>
+  )
 }
+
 export default App
